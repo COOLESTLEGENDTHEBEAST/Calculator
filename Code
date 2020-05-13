@@ -1,0 +1,166 @@
+#include <iostream>
+#include <string>
+using namespace std;
+//Function To divide
+void remainder(){
+int h,f;
+cout<< "Enter The First Number in the operation h%f= ";
+cin>>h;
+cout<< "Enter The Second Number= ";
+cin>>f;
+int result=h%f;
+cout<<result<<endl;
+
+}
+
+int divide(int a, int b)
+{
+    if( b == 0 )
+    {
+        return 0;
+    }
+    else if(a-b == 0)
+    {
+       return 1;
+    }
+    else if( a < b)
+    {
+       return 0; // You will need to think of something better than this.
+    }
+    else
+    {
+        return ( 1 + divide(a-b, b) );
+    }
+}
+
+
+
+//Function to multiply
+int multi(int m,int n){
+int result;
+if(n==1){
+    result=m;
+}else {
+result= m+ multi(m,n-1);
+}
+return result;
+}
+
+
+
+
+//multiply
+void Multiply(){
+  int m,n;
+    cout<<endl<<"First Number:- ";
+    cin>>m;
+    cout<<"Second Number:- ";
+    cin>>n;
+
+    if(m>9999 || n>9999){
+        cout<<"Warning:- If the Number is too large, the result may not be returned "<<endl;
+    }
+
+  int result=multi(m,n);
+  cout<<"The product of "<<m<<" and "<<n<<" is= " <<result<<endl;
+}
+
+//Divide
+
+void division(){
+int a,b;
+cout<<"The number to be Divided= ";
+cin>>a;
+cout<<"The number to Divide by= ";
+cin>>b;
+int result=divide(a,b);
+cout<<"The Quotient of "<<a<<" and "<<b<<" is= "<<result<<endl;
+}
+
+
+//Addition
+
+void Addition(){
+int c,d;
+cout<<"Enter your First Number= ";
+cin>>c;
+cout<<"Enter your Second Number= ";
+cin>>d;
+
+int result= c+d;
+cout<< "The Sum Of "<<c<< " and "<<d<< " is "<<result<<endl;
+}
+
+
+//Subtaction
+
+void subtraction(){
+    int e,f;
+cout<<"Enter your First Number= ";
+cin>>e;
+cout<<"Enter your Second Number= ";
+cin>>f;
+
+int result= e-f;
+cout<< "The Difference Of "<<e<< " and "<<f<< " is "<<result<<endl;
+
+}
+
+void choice(){
+ int a;
+
+    cout<<"CHOOSE ONE OF THE FOLLOWING OPTIONS:- "<<endl<<"MULTIPLY =1"<<endl<<"DIVISION =2"<<endl<<"ADDITION=3"<<endl<<"SUBTRACTION=4"<<endl<<"REMAINDER=5"<<endl;
+    cout<<"Type The Preferred Operation's Number->";
+    cin>>a;
+
+    if(a==1){
+        Multiply();
+    }
+    if(a==2){
+    division();
+    }
+    if(a==3){
+       Addition();
+    }
+    if(a==4){
+        subtraction();
+    }if(a>5) {
+        cout<<"WARNING:-This Operation Does Not Exist"<<endl;
+    }
+    if(a==5){
+        remainder();
+    }
+}
+
+
+
+int main()
+{
+
+    choice();
+
+        cout<<"Do you want to conduct another calculation "<<endl;
+    bool great=true;
+   string input;
+cout << "say yes or no" << endl;
+cin >> input;
+if(input == "yes" ||input == "Yes" || input == "YES" )
+{
+    great=true;
+}else {
+    great=false;
+    }
+    while(great){
+        choice();
+        cout<<"Do you want to conduct another calculation "<<endl;
+  cout << "say yes or no" << endl;
+cin >> input;
+if(input == "yes" ||input == "Yes" || input == "YES" )
+{
+    great=true;
+}else {
+    great=false;
+    }
+    }
+}
+
